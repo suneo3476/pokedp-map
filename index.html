@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PokemonDP</title>
+<style type="text/css">
+body {
+    background-color: #DDDDDD;
+    font: 30px sans-serif;
+}
+canvas {
+    background-color: white;
+}
+</style>
+<script type="text/javascript" src="./processing-1.4.1.min.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+  var canvas = document.getElementsByTagName('canvas')[0];
+
+  // Processing のソースコードが書かれた script 要素
+  var codeElm = document.getElementById('processing-code');
+  // 要素の内容を取得する
+  var code = codeElm.textContent || codeElm.innerText;
+
+  var p = new Processing(canvas, code);
+};
+</script>
+<script id="processing-code" type="application/processing">
+// processing source write here
+var map=
+[
+['エイチこ',[9,1],[10,2],'l'],
+['キッサキ',[11,1],[11,2],'c'],
+['217',[9,3],[9,6]],
+['216',[9,7],[11,7]],
+['テンガンさん',[12,7],[12,14]],
+['フタバ',[3,22],[3,22],'t'],
+['201',[3,21],[4,21]],
+['シンジこ',[1,20],[2,21],'l'],
+['ミオ',[1,17],[1,18],'c'],
+['218',[2,18],[3,18]],
+['コトブキ',[4,18],[5,19],'c'],
+['マサゴ',[5,21],[5,21],'t'],
+['219',[5,22],[5,22]],
+['220',[5,23],[7,23],'w'],
+['221',[8,23],[9,23]],
+['202',[5,20],[5,20]],
+['203',[6,18],[7,18]],
+['204',[5,16],[5,17]],
+['ソノオ',[5,14],[5,15],'t'],
+['タタラ',[5,13],[5,13]],
+['むじん',[7,15],[7,15]],
+['205',[6,13],[6,15]],
+['ハクタイのもり',[6,11],[7,12]],
+['205',[8,11],[8,11]],
+['ハクタイ',[9,11],[10,12],'c'],
+['206',[9,13],[9,16]],
+['207',[9,17],[10,17]],
+['クロガネ',[8,18],[9,19],'c'],
+['テンガンさん',[11,14],[11,17]],
+['211',[11,11],[11,11]],
+['208',[12,18],[13,18]],
+['ヨスガ',[14,17],[15,18],'c'],
+['212',[14,19],[14,21]],
+['212',[14,22],[17,22]],
+['ノモセ',[18,21],[19,22],'c'],
+['213',[20,21],[22,22]],
+['リッシこ',[21,19],[22,20],'l'],
+['214',[22,16],[22,18]],
+['トバリ',[21,14],[22,15],'c'],
+['215',[18,14],[20,14]],
+['210',[13,12],[13,12]],
+['210',[15,12],[17,12]],
+['210',[17,13],[17,15]],
+['ズイ',[17,16],[18,16],'t'],
+['209',[17,17],[17,17]],
+['209',[16,18],[17,18]],
+['カンナギ',[14,12],[14,12],'t'],
+['222',[23,20],[25,20]],
+['ナギサ',[26,19],[27,20],'c'],
+['223',[26,14],[26,18],'w'],
+['ロード',[26,13],[26,13]],
+['リーグ',[26,12],[26,12]],
+['224',[27,11],[27,12]],
+['224',[28,10],[28,11]],
+['ハード',[22,3],[22,3]],
+['サバイバル',[20,6],[20,6],'t'],
+['ファイト',[19,9],[20,9],'c'],
+['リゾート',[25,10],[25,10],'t'],
+['225',[19,6],[19,7]],
+['225',[19,8],[20,8]],
+['226',[21,6],[23,6],'w'],
+['227',[22,4],[22,5]],
+['228',[24,6],[24,8]],
+['229',[24,9],[25,9]],
+['230',[21,9],[23,9],'w'],
+['こうてつじま',[3,10],[3,10]],
+['しんげつじま',[4,3],[4,3]],
+['まんげつじま',[2,3],[2,3]],
+['',[,],[,]]
+];
+
+var width=30, height=25, gridSize=26, fontSize=gridSize/4, margin=gridSize/12;
+PFont font=createFont('メイリオ',fontSize);
+
+void setup(){
+textFont(font,fontSize);
+size(width*gridSize,height*gridSize);
+smooth();
+background(24,165,189);
+stroke(128);
+for(var w=gridSize; w<width*gridSize; w+=gridSize){
+//  text(w/gridSize,w,gridSize-fontSize);
+	// line(w,gridSize,w,height*gridSize);
+}
+for(var h=gridSize; h<height*gridSize; h+=gridSize){
+ // text(h/gridSize,0,h+gridSize);
+	// line(gridSize,h,width*gridSize,h);
+}
+
+//green land
+noStroke();
+for(var m=0;m<map.length;m++){
+  var elm=map[m];
+  var name=elm[0];
+  var grid1=elm[1];
+  var grid2=elm[2];
+  var min_x=min(grid1[0],grid2[0]);
+  var min_y=min(grid1[1],grid2[1]);
+  var dif_x=grid2[0]-grid1[0];
+  var dif_y=grid2[1]-grid1[1];
+  var type=elm[3];
+  if(type=='w')
+    continue;
+  fill(140,206,74);
+  rect(min_x*gridSize-gridSize/3,min_y*gridSize-gridSize/3,gridSize*(dif_x+1)+gridSize*2/3,gridSize*(dif_y+1)+gridSize*2/3);
+}
+//orange road, blue town, red city, lake
+strokeWeight(3.6);
+for(var m=0;m<map.length;m++){
+  var elm=map[m];
+  var name=elm[0];
+  var grid1=elm[1];
+  var grid2=elm[2];
+  var min_x=min(grid1[0],grid2[0]);
+  var min_y=min(grid1[1],grid2[1]);
+  var dif_x=grid2[0]-grid1[0];
+  var dif_y=grid2[1]-grid1[1];
+  var type=elm[3];
+  switch(type){
+    case 'c':
+    stroke(198,57,57);
+    fill(247,107,107);
+    break;
+    case 't':
+    stroke(74,99,214);
+    fill(115,140,255);
+    break;
+    case 'l':
+    stroke(214,214,165);
+    fill(165,255,255);
+    break;
+    case 'w':
+    stroke(49,181,206);
+    fill(66,206,222);
+    break;
+    default:
+    stroke(255,173,57);
+    fill(255,198,82);
+    break;
+  }
+  rect(min_x*gridSize+margin,min_y*gridSize+margin,gridSize*(dif_x+1)-margin*2,gridSize*(dif_y+1)-margin*2);
+}
+//location name
+fill(64,128,64);
+for(var m=0;m<map.length;m++){
+  var elm=map[m];
+  var name=elm[0];
+  var grid1=elm[1];
+  var grid2=elm[2];
+  var min_x=min(grid1[0],grid2[0]);
+  var min_y=min(grid1[1],grid2[1]);
+  var dif_x=grid2[0]-grid1[0];
+  var dif_y=grid2[1]-grid1[1];
+  text(name,min_x*gridSize+margin*1.5,min_y*gridSize+margin*3,gridSize*(dif_x+1)-fontSize-margin,gridSize*(dif_y+1)-fontSize-margin);
+}
+}
+
+void run(){
+
+}
+void mousePressed(){
+}
+</script>
+</head>
+<body>
+  <canvas id="canvas" width="780" height="650"></canvas>
+</body>
+</html>

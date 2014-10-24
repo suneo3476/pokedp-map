@@ -1,12 +1,19 @@
 pokedp-map
 ==========
 
-![さんぷる](https://github.com/suneo3476/pokedp-map/blob/master/images/sample-map.png)
+![さんぷる](https://raw.github.com/wiki/suneo3476/pokedp-map/images/sample-map.png)
 
 #なにこれ
 - ポケモンDPマップを描く
 - インタラクティブ要素なし
 - コードの汚ない
+
+#なにがしたかったのか
+- ポケモンBGMの楽譜や演奏動画が見たい
+- 「201ばんどうろ」「201番道路」とか検索むっちゃ面倒
+- 道路の位置だったかすら覚えてない
+- じゃあ地図作ってリンク紐付けすればええねん
+- →地図だけができた
 
 #つかいかた
 - DLする
@@ -17,9 +24,5 @@ pokedp-map
 ＞ おわり ＜
 
 ￣Y^Y^Y^Y^￣
-
-#たいせつ
-- ポケットモンスターは任天堂および関連企業が著作権を保持しています
-- これはゲームのコピーを騙るものではありません
 
 using Processing.js

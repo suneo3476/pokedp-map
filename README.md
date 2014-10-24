@@ -1,7 +1,7 @@
 pokedp-map
 ==========
 
-![さんぷる](https://raw.github.com/wiki/suneo3476/pokedp-map/images/sample-map.png)
+![さんぷる](https://github.com/suneo3476/pokedp-map/blob/master/images/sample-map.png)
 
 #なにこれ
 - ポケモンDPマップを描く

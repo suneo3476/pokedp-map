@@ -1,7 +1,7 @@
 pokedp-map
 ==========
 
-![さんぷる](https://raw.github.com/wiki/suneo3476/pokedp-map/images/sample-map.png)
+![さんぷる2](https://raw.github.com/wiki/suneo3476/pokedp-map/images/sample-map-2.png)
 
 #なにこれ
 - ポケモンDPマップを描く
@@ -24,5 +24,9 @@ pokedp-map
 ＞ おわり ＜
 
 ￣Y^Y^Y^Y^￣
+
+#たいせつ
+- ポケットモンスターは任天堂及び関連会社が著作権を保持しています
+- これはゲームのコピーを騙るものではありません
 
 using Processing.js

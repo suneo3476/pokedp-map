@@ -28,82 +28,110 @@ window.onload = function() {
 // processing source write here
 var map=
 [
-['はなのらくえん',[28,1],[28,1]],
-['うみわれのみち',[28,2],[28,10],'w'],
-['かくれいずみへのみち',[23,17],[24,18]],
+['はなのらくえん',[28,1],[28,1],'f'],
+['うみわれのみち',[28,2],[28,10],'s'],
+['かくれいずみへのみち',[23,17],[24,18],'f'],
 ['エイチこ',[9,1],[10,2],'l'],
-['キッサキ',[11,1],[11,2],'c'],
-['217',[9,3],[9,6]],
-['216',[9,7],[11,7]],
-['テンガンさん',[12,7],[12,14]],
-['フタバ',[3,22],[3,22],'t'],
-['201',[3,21],[4,21]],
+['キッサキシティ',[11,1],[11,2],'c'],
+['217',[9,3],[9,6],'r'],
+['216',[9,7],[11,7],'r'],
+['テンガンざん',[12,7],[12,14]],
+['フタバタウン',[3,22],[3,22],'t'],
+['201',[3,21],[4,21],'r'],
 ['シンジこ',[1,20],[2,21],'l'],
-['ミオ',[1,17],[1,18],'c'],
-['218',[2,18],[3,18]],
-['コトブキ',[4,18],[5,19],'c'],
-['マサゴ',[5,21],[5,21],'t'],
-['219',[5,22],[5,22]],
+['ミオシティ',[1,17],[1,18],'c'],
+['218',[2,18],[3,18],'r'],
+['コトブキシティ',[4,18],[5,19],'c'],
+['マサゴタウン',[5,21],[5,21],'t'],
+['219',[5,22],[5,22],'r'],
 ['220',[5,23],[7,23],'w'],
-['221',[8,23],[9,23]],
-['202',[5,20],[5,20]],
-['203',[6,18],[7,18]],
-['204',[5,16],[5,17]],
-['ソノオ',[5,14],[5,15],'t'],
-['タタラ',[5,13],[5,13]],
-['むじん',[7,15],[7,15]],
-['205',[6,13],[6,15]],
+['221',[8,23],[9,23],'r'],
+['202',[5,20],[5,20],'r'],
+['203',[6,18],[7,18],'r'],
+['204',[5,16],[5,17],'r'],
+['ソノオタウン',[5,14],[5,15],'t'],
+['タタラせいてつしょ',[5,13],[5,13]],
+['たにまのはつでんしょ',[7,15],[7,15]],
+['205',[6,13],[6,15],'r'],
 ['ハクタイのもり',[6,11],[7,12]],
-['205',[8,11],[8,11]],
-['ハクタイ',[9,11],[10,12],'c'],
-['206',[9,13],[9,16]],
-['207',[9,17],[10,17]],
-['クロガネ',[8,18],[9,19],'c'],
-['テンガンさん',[11,14],[11,17]],
-['211',[11,11],[11,11]],
-['208',[12,17],[13,17]],
-['ヨスガ',[14,16],[15,17],'c'],
-['212',[14,18],[14,20]],
-['212',[14,21],[17,21]],
-['ノモセ',[18,20],[19,21],'c'],
-['213',[20,20],[22,21]],
+['205',[8,11],[8,11],'r'],
+['ハクタイシティ',[9,11],[10,12],'c'],
+['206',[9,13],[9,16],'r'],
+['207',[9,17],[10,17],'r'],
+['クロガネシティ',[8,18],[9,19],'c'],
+['テンガンざん',[11,14],[11,17]],
+['211',[11,11],[11,11],'r'],
+['208',[12,17],[13,17],'r'],
+['ヨスガシティ',[14,16],[15,17],'c'],
+['212',[14,18],[14,20],'r'],
+['212',[14,21],[17,21],'r'],
+['ノモセシティ',[18,20],[19,21],'c'],
+['213',[20,20],[22,21],'r'],
 ['リッシこ',[21,18],[22,19],'l'],
-['214',[22,15],[22,17]],
-['トバリ',[21,13],[22,14],'c'],
-['215',[18,13],[20,13]],
-['210',[13,11],[13,11]],
-['210',[15,11],[17,11]],
-['210',[17,12],[17,14]],
-['ズイ',[17,15],[18,15],'t'],
-['209',[17,16],[17,16]],
-['209',[16,17],[17,17]],
-['カンナギ',[14,11],[14,11],'t'],
-['222',[23,19],[25,19]],
-['ナギサ',[26,18],[27,19],'c'],
+['214',[22,15],[22,17],'r'],
+['トバリシティ',[21,13],[22,14],'c'],
+['215',[18,13],[20,13],'r'],
+['210',[13,11],[13,11],'r'],
+['210',[15,11],[17,11],'r'],
+['210',[17,12],[17,14],'r'],
+['ズイタウン',[17,15],[18,15],'t'],
+['209',[17,16],[17,16],'r'],
+['209',[16,17],[17,17],'r'],
+['カンナギタウン',[14,11],[14,11],'t'],
+['222',[23,19],[25,19],'r'],
+['ナギサシティ',[26,18],[27,19],'c'],
 ['223',[26,14],[26,17],'w'],
-['ロード',[26,13],[26,13]],
-['リーグ',[26,12],[26,12]],
-['224',[27,11],[27,12]],
-['224',[28,10],[28,11]],
-['ハード',[22,2],[22,2]],
-['サバイバル',[20,5],[20,5],'t'],
-['ファイト',[19,8],[20,8],'c'],
-['リゾート',[25,9],[25,9],'t'],
-['225',[19,5],[19,6]],
-['225',[19,7],[20,7]],
+['チャンピオンロード',[26,13],[26,13],'f'],
+['ポケモンリーグ',[26,12],[26,12],'f'],
+['224',[27,11],[27,12],'r'],
+['224',[28,10],[28,11],'r'],
+['ハードマウンテン',[22,2],[22,2],'f'],
+['サバイバルエリア',[20,5],[20,5],'t'],
+['ファイトエリア',[19,8],[20,8],'c'],
+['リゾートエリア',[25,9],[25,9],'t'],
+['225',[19,5],[19,6],'r'],
+['225',[19,7],[20,7],'r'],
 ['226',[21,5],[23,5],'w'],
-['227',[22,3],[22,4]],
-['228',[24,5],[24,7]],
-['229',[24,8],[25,8]],
+['227',[22,3],[22,4],'r'],
+['228',[24,5],[24,7],'r'],
+['229',[24,8],[25,8],'r'],
 ['230',[21,8],[23,8],'w'],
-['こうてつじま',[3,9],[3,9]],
-['しんげつじま',[4,3],[4,3]],
-['まんげつじま',[2,3],[2,3]],
+['こうてつじま',[3,9],[3,9],'f'],
+['しんげつじま',[4,3],[4,3],'f'],
+['まんげつじま',[2,3],[2,3],'f'],
 ['',[,],[,]]
+];
+
+//explain common bgm ... on the way
+var commonBGM=[
+[201,202,219],
+[203,204,218],
+[205],
+[206,207,208,220,221],
+[209,212,222],
+[210,211,214,215,223,224],
+[213,'リゾートエリア'],
+[216,217],
+[225,226,227],
+[228,229,230],
+['フタバタウン'],
+['マサゴタウン'],
+['コトブキシティ'],
+['クロガネシティ'],
+['ソノオタウン','うみわれのみち','はなのらくえん'],
+['ミオシティ'],
+['ハクタイシティ','カンナギタウン'],
+['ズイタウン','ノモセシティ'],
+['ヨスガシティ'],
+['トバリシティ'],
+['ナギサシティ'],
+['ファイトエリア','サバイバルエリア'],
+['キッサキシティ'],
 ];
 
 var width=30, height=25, gridSize=26, fontSize=gridSize/4, margin=gridSize/12;
 PFont font=createFont('メイリオ',fontSize);
+var grid=new String[width][height];
 
 void setup(){
 textFont(font,fontSize);
@@ -122,32 +150,32 @@ for(var h=gridSize; h<height*gridSize; h+=gridSize){
 
 //green land
 noStroke();
-for(var m=0;m<map.length;m++){
+for(var m=0;m<map.length;	m++){
   var elm=map[m];
   var name=elm[0];
   var grid1=elm[1];
   var grid2=elm[2];
-  var min_x=min(grid1[0],grid2[0]);
-  var min_y=min(grid1[1],grid2[1]);
-  var dif_x=grid2[0]-grid1[0];
-  var dif_y=grid2[1]-grid1[1];
+  var minX=min(grid1[0],grid2[0]);
+  var minY=min(grid1[1],grid2[1]);
+  var difX=grid2[0]-grid1[0];
+  var difY=grid2[1]-grid1[1];
   var type=elm[3];
-  if(type=='w')
+  if(type=='w' || type=='s')
     continue;
   fill(140,206,74);
-  var ret=rect(min_x*gridSize-gridSize/3,min_y*gridSize-gridSize/3,gridSize*(dif_x+1)+gridSize*2/3,gridSize*(dif_y+1)+gridSize*2/3);
+  var ret=rect(minX*gridSize-gridSize/3,minY*gridSize-gridSize/3,gridSize*(difX+1)+gridSize*2/3,gridSize*(difY+1)+gridSize*2/3);
 }
-//orange road, blue town, red city, lake
+//orange route, blue water route, blue town, red city, lake
 strokeWeight(3.6);
 for(var m=0;m<map.length;m++){
   var elm=map[m];
   var name=elm[0];
   var grid1=elm[1];
   var grid2=elm[2];
-  var min_x=min(grid1[0],grid2[0]);
-  var min_y=min(grid1[1],grid2[1]);
-  var dif_x=grid2[0]-grid1[0];
-  var dif_y=grid2[1]-grid1[1];
+  var minX=min(grid1[0],grid2[0]);
+  var minY=min(grid1[1],grid2[1]);
+  var difX=grid2[0]-grid1[0];
+  var difY=grid2[1]-grid1[1];
   var type=elm[3];
   switch(type){
     case 'c':
@@ -165,13 +193,22 @@ for(var m=0;m<map.length;m++){
     case 'w':
     stroke(49,181,206);
     fill(66,206,222);
+    case 's':
+    stroke(49,181,206);
+    fill(66,206,222);
     break;
     default:
     stroke(255,173,57);
     fill(255,198,82);
     break;
   }
-  rect(min_x*gridSize+margin,min_y*gridSize+margin,gridSize*(dif_x+1)-margin*2,gridSize*(dif_y+1)-margin*2);
+  rect(minX*gridSize+margin,minY*gridSize+margin,gridSize*(difX+1)-margin*2,gridSize*(difY+1)-margin*2);
+//grid register
+  for(var x=minX;x<=minX+difX;x++){
+		for(var y=minY;y<=minY+difY;y++){
+    	grid[x][y]=name;
+    }
+  }
 }
 //location name
 fill(64,128,64);
@@ -180,11 +217,11 @@ for(var m=0;m<map.length;m++){
   var name=elm[0];
   var grid1=elm[1];
   var grid2=elm[2];
-  var min_x=min(grid1[0],grid2[0]);
-  var min_y=min(grid1[1],grid2[1]);
-  var dif_x=grid2[0]-grid1[0];
-  var dif_y=grid2[1]-grid1[1];
-  text(name,min_x*gridSize+margin*1.5,min_y*gridSize+margin*3,gridSize*(dif_x+1)-fontSize-margin,gridSize*(dif_y+1)-fontSize-margin);
+  var minX=min(grid1[0],grid2[0]);
+  var minY=min(grid1[1],grid2[1]);
+  var difX=grid2[0]-grid1[0];
+  var difY=grid2[1]-grid1[1];
+  text(name,minX*gridSize+margin*1.5,minY*gridSize+margin*3,gridSize*(difX+1)-fontSize-margin,gridSize*(difY+1)-fontSize-margin);
 }
 }
 
@@ -192,6 +229,38 @@ void run(){
 
 }
 void mousePressed(){
+	var x=mouseX, y=mouseY;
+	var mapName=gridToMap(x,y);
+	if(mapName==null)
+		return;
+	var type=getType(mapName);
+	if(type=='r'){
+		// ex:(209ばんどうろ OR 209番道路 OR (pokemon route 209)) (piano OR ピアノ)
+		mapName='(+'+mapName+'ばんどうろ OR '+mapName+'番道路 OR (pokemon route '+mapName+'))';
+	}else if(type=='w'&&mapName){
+		mapName='(+'+mapName+'ばんすいどう OR '+mapName+'番水道 OR (pokemon route '+mapName+'))';
+	}else if(type=='l'){
+		mapName=mapName+'のほとり OR '+mapName;
+	}
+	mapName+='+(day OR night OR 昼 OR 夜)';
+	var urlHead="http://youtube.com/results?search_query=";
+
+	link(urlHead+mapName, "_new");
+}
+String gridToMap(x, y){
+	var x=(int)(x/gridSize), y=(int)(y/gridSize);
+	return grid[x][y];
+}
+String getType(mapName){
+	var type='';
+	for(var m=0;m<map.length;m++){
+	  var elm=map[m];
+  	if(mapName!=elm[0])
+  		continue;
+		else
+			return type=elm[3];
+	}
+	return '';
 }
 </script>
 </head>

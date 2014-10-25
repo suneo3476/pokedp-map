@@ -30,7 +30,7 @@ var map=
 [
 ['はなのらくえん',[28,1],[28,1],'f'],
 ['うみわれのみち',[28,2],[28,10],'s'],
-['かくれいずみへのみち',[23,17],[24,18],'f'],
+['かくれいずみへのみち',[23,16],[24,17],'f'],
 ['エイチこ',[9,1],[10,2],'l'],
 ['キッサキシティ',[11,1],[11,2],'c'],
 ['217',[9,3],[9,6],'r'],
@@ -108,17 +108,17 @@ var commonBGM=[
 [203,204,218],
 [205],
 [206,207,208,220,221],
-[209,212,222],
+[209,212,222,'じまんのうらにわ'],
 [210,211,214,215,223,224],
 [213,'リゾートエリア'],
 [216,217],
 [225,226,227],
-[228,229,230],
+[228,229,230]
 ['フタバタウン'],
 ['マサゴタウン'],
 ['コトブキシティ'],
 ['クロガネシティ'],
-['ソノオタウン','うみわれのみち','はなのらくえん'],
+['ソノオタウン','ソノオのはなばたけ','うみわれのみち','はなのらくえん'],
 ['ミオシティ'],
 ['ハクタイシティ','カンナギタウン'],
 ['ズイタウン','ノモセシティ'],
@@ -127,110 +127,130 @@ var commonBGM=[
 ['ナギサシティ'],
 ['ファイトエリア','サバイバルエリア'],
 ['キッサキシティ'],
+['クロガネたんこう','こうてつじま'],
+['クロガネゲート','あれたぬけみち','まよいのどうくつ','いせきマニアのあな'],
+['ハクタイのもり'],
+['もりのようかん','ロストタワー','ズイのいせき'],
+['テンガンざん'],
+['ノモセだいしつげん']
 ];
 
 var width=30, height=25, gridSize=26, fontSize=gridSize/4, margin=gridSize/12;
 PFont font=createFont('メイリオ',fontSize);
 var grid=new String[width][height];
+var mouseOverX=mouseOverY=0;
+color strokeCity=color(198,57,57);
+color strokeTown=color(74,99,214);
+color strokeRoute=color(255,173,57);
+color strokeLake=color(214,214,165);
+color strokeWater=color(49,181,206);
+color strokeSea=color(49,181,206);
+color fillCity=color(247,107,107);
+color fillTown=color(115,140,255);
+color fillRoute=color(255,198,82);
+color fillLake=color(165,255,255);
+color fillWater=color(66,206,222);
+color fillSea=color(66,206,222);
 
 void setup(){
-textFont(font,fontSize);
-size(width*gridSize,height*gridSize);
-smooth();
-background(24,165,189);
-stroke(128);
-for(var w=gridSize; w<width*gridSize; w+=gridSize){
-//  text(w/gridSize,w,gridSize-fontSize);
-	// line(w,gridSize,w,height*gridSize);
-}
-for(var h=gridSize; h<height*gridSize; h+=gridSize){
- // text(h/gridSize,0,h+gridSize);
-	// line(gridSize,h,width*gridSize,h);
+	textFont(font,fontSize);
+	size(width*gridSize,height*gridSize);
+	smooth();
+	for(var m=0;m<map.length;m++){
+	  var elm=map[m];
+	  var name=elm[0];
+	  var grid1=elm[1];
+	  var grid2=elm[2];
+	  var minX=min(grid1[0],grid2[0]);
+	  var minY=min(grid1[1],grid2[1]);
+	  var difX=grid2[0]-grid1[0];
+	  var difY=grid2[1]-grid1[1];
+	  for(var x=minX;x<=minX+difX;x++){
+			for(var y=minY;y<=minY+difY;y++){
+	    	grid[x][y]=name;
+	    }
+	  }
+	}
 }
 
-//green land
-noStroke();
-for(var m=0;m<map.length;	m++){
-  var elm=map[m];
-  var name=elm[0];
-  var grid1=elm[1];
-  var grid2=elm[2];
-  var minX=min(grid1[0],grid2[0]);
-  var minY=min(grid1[1],grid2[1]);
-  var difX=grid2[0]-grid1[0];
-  var difY=grid2[1]-grid1[1];
-  var type=elm[3];
-  if(type=='w' || type=='s')
-    continue;
+void draw(){
+	background(24,165,189);
+	//green land
+	noStroke();
   fill(140,206,74);
-  var ret=rect(minX*gridSize-gridSize/3,minY*gridSize-gridSize/3,gridSize*(difX+1)+gridSize*2/3,gridSize*(difY+1)+gridSize*2/3);
-}
-//orange route, blue water route, blue town, red city, lake
-strokeWeight(3.6);
-for(var m=0;m<map.length;m++){
-  var elm=map[m];
-  var name=elm[0];
-  var grid1=elm[1];
-  var grid2=elm[2];
-  var minX=min(grid1[0],grid2[0]);
-  var minY=min(grid1[1],grid2[1]);
-  var difX=grid2[0]-grid1[0];
-  var difY=grid2[1]-grid1[1];
-  var type=elm[3];
-  switch(type){
-    case 'c':
-    stroke(198,57,57);
-    fill(247,107,107);
-    break;
-    case 't':
-    stroke(74,99,214);
-    fill(115,140,255);
-    break;
-    case 'l':
-    stroke(214,214,165);
-    fill(165,255,255);
-    break;
-    case 'w':
-    stroke(49,181,206);
-    fill(66,206,222);
-    case 's':
-    stroke(49,181,206);
-    fill(66,206,222);
-    break;
-    default:
-    stroke(255,173,57);
-    fill(255,198,82);
-    break;
+	for(var m=0;m<map.length;	m++){
+	  var elm=map[m];
+	  var type=elm[3];
+	  if(type=='w' || type=='s')
+	    continue;
+	  var grid1=elm[1];
+	  var grid2=elm[2];
+	  var minX=min(grid1[0],grid2[0]);
+	  var minY=min(grid1[1],grid2[1]);
+	  var difX=grid2[0]-grid1[0];
+	  var difY=grid2[1]-grid1[1];
+	  rect(minX*gridSize-gridSize/3,minY*gridSize-gridSize/3,gridSize*(difX+1)+gridSize*2/3,gridSize*(difY+1)+gridSize*2/3);
+	}
+	//orange route, blue water route, blue town, red city, lake
+	strokeWeight(3.6);
+	strokeCap(ROUND);
+	for(var m=0;m<map.length;m++){
+	  var elm=map[m];
+	  var name=elm[0];
+	  var grid1=elm[1];
+	  var grid2=elm[2];
+	  var minX=min(grid1[0],grid2[0]);
+	  var minY=min(grid1[1],grid2[1]);
+	  var difX=grid2[0]-grid1[0];
+	  var difY=grid2[1]-grid1[1];
+	  var type=elm[3];
+	  switch(type){
+	    case 'c':
+	    stroke(strokeCity);
+	    fill(fillCity);
+	    break;
+	    case 't':
+	    stroke(strokeTown);
+	    fill(fillTown);
+	    break;
+	    case 'l':
+	    stroke(strokeLake);
+	    fill(fillLake);
+	    break;
+	    case 'w':
+	    stroke(strokeWater);
+	    fill(fillWater);
+	    case 's':
+	    stroke(strokeSea);
+	    fill(fillSea);
+	    break;
+	    default:
+	    stroke(strokeRoute);
+	    fill(fillRoute);
+	    break;
+	  }
+	  rect(minX*gridSize+margin,minY*gridSize+margin,gridSize*(difX+1)-margin*2,gridSize*(difY+1)-margin*2);
+		//location name
+		fill(64,128,64);
+	  text(name,minX*gridSize+margin*1.5,minY*gridSize+margin*3,gridSize*(difX+1)-fontSize-margin,gridSize*(difY+1)-fontSize-margin);
+	}
+ //mouseOver
+  if(grid[mouseOverX][mouseOverY]!=null){
+		stroke(32,32,32,196);
+		fill(196,196,196,32);
+		rect(mouseOverX*gridSize,mouseOverY*gridSize,gridSize,gridSize);
   }
-  rect(minX*gridSize+margin,minY*gridSize+margin,gridSize*(difX+1)-margin*2,gridSize*(difY+1)-margin*2);
-//grid register
-  for(var x=minX;x<=minX+difX;x++){
-		for(var y=minY;y<=minY+difY;y++){
-    	grid[x][y]=name;
-    }
-  }
-}
-//location name
-fill(64,128,64);
-for(var m=0;m<map.length;m++){
-  var elm=map[m];
-  var name=elm[0];
-  var grid1=elm[1];
-  var grid2=elm[2];
-  var minX=min(grid1[0],grid2[0]);
-  var minY=min(grid1[1],grid2[1]);
-  var difX=grid2[0]-grid1[0];
-  var difY=grid2[1]-grid1[1];
-  text(name,minX*gridSize+margin*1.5,minY*gridSize+margin*3,gridSize*(difX+1)-fontSize-margin,gridSize*(difY+1)-fontSize-margin);
-}
-}
 
-void run(){
-
+}
+void mouseMoved(){
+	var mapXY=gridToMap(mouseX,mouseY);
+	mouseOverX = mapXY[0];
+	mouseOverY = mapXY[1];
 }
 void mousePressed(){
 	var x=mouseX, y=mouseY;
-	var mapName=gridToMap(x,y);
+	var mapXY=gridToMap(x,y);
+	var mapName=grid[mapXY[0]][mapXY[1]];
 	if(mapName==null)
 		return;
 	var type=getType(mapName);
@@ -249,7 +269,7 @@ void mousePressed(){
 }
 String gridToMap(x, y){
 	var x=(int)(x/gridSize), y=(int)(y/gridSize);
-	return grid[x][y];
+	return [x,y];
 }
 String getType(mapName){
 	var type='';

@@ -1,12 +1,12 @@
 pokedp-map
 ==========
-
+※画像は開発中のものです
 ![さんぷる2](https://raw.githubusercontent.com/suneo3476/pokedp-map/master/images/sample-map-2.png)
 
 #なにこれ
 - ポケモンDPマップを描く
 - インタラクティブ要素なし
-- コードの汚ない
+- コードが汚ない
 
 #なにがしたかったのか
 - ポケモンBGMの楽譜や演奏動画が見たい
